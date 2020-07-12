@@ -1,0 +1,2 @@
+array = newarray(2, 2, 2)
+print array
