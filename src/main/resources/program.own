@@ -8,9 +8,6 @@ arr = [1,"text",1015,[],["text2",[90,[7 + 6,[50]]]]]
 println arr[4][1]
 arr[4][1] = "test"
 println arr[4][1]
-
-println "=="
-println "=="
+*/
 array = newarray(2, 2, 2)
 println array
-*/
