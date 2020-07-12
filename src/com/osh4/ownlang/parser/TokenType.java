@@ -1,5 +1,8 @@
 package com.osh4.ownlang.parser;
 
+/**
+ * Token type.
+ */
 public enum TokenType
 {
 	NUMBER,

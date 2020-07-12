@@ -3,11 +3,15 @@ package com.osh4.ownlang.lib;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.osh4.ownlang.lib.functions.CosFunction;
-import com.osh4.ownlang.lib.functions.EchoFunction;
-import com.osh4.ownlang.lib.functions.Function;
-import com.osh4.ownlang.lib.functions.SinFunction;
+import com.osh4.ownlang.function.impl.CosFunction;
+import com.osh4.ownlang.function.impl.EchoFunction;
+import com.osh4.ownlang.function.Function;
+import com.osh4.ownlang.function.impl.NewarrayFunction;
+import com.osh4.ownlang.function.impl.SinFunction;
 
+/**
+ * Store functions defined in program inside the pool.
+ */
 public final class Functions
 {
 	private static final Map<String, Function> FUNCTIONS;
@@ -21,12 +25,26 @@ public final class Functions
 		FUNCTIONS.put("newarray", args -> (new NewarrayFunction()).execute(args));
 	}
 
-	public static boolean isExists(String key)
+	/**
+	 * Check if function exists in function pool.
+	 *
+	 * @param key function name as a key
+	 *
+	 * @return true if function exists
+	 */
+	public static boolean isExists(final String key)
 	{
 		return FUNCTIONS.containsKey(key);
 	}
 
-	public static Function get(String key)
+	/**
+	 * Gets function from function pool.
+	 *
+	 * @param key function name
+	 *
+	 * @return Function object
+	 */
+	public static Function get(final String key)
 	{
 		if (!isExists(key))
 		{
@@ -35,7 +53,13 @@ public final class Functions
 		return FUNCTIONS.get(key);
 	}
 
-	public static void set(String key, Function value)
+	/**
+	 * Puts function to the function pool.
+	 *
+	 * @param key   function name as a key
+	 * @param value function body as Function object
+	 */
+	public static void set(final String key, final Function value)
 	{
 		FUNCTIONS.put(key, value);
 	}

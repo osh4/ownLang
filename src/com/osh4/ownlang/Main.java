@@ -8,10 +8,10 @@ import java.util.List;
 import com.osh4.ownlang.parser.Lexer;
 import com.osh4.ownlang.parser.Parser;
 import com.osh4.ownlang.parser.Token;
-import com.osh4.ownlang.parser.ast.BlockStatement;
-import com.osh4.ownlang.parser.visitors.AssignValidator;
-import com.osh4.ownlang.parser.visitors.FunctionAdder;
-import com.osh4.ownlang.parser.visitors.VariablePrinter;
+import com.osh4.ownlang.parser.ast.statement.impl.BlockStatement;
+import com.osh4.ownlang.parser.ast.visitor.impl.AssignValidator;
+import com.osh4.ownlang.parser.ast.visitor.impl.FunctionAdder;
+import com.osh4.ownlang.parser.ast.visitor.impl.VariablePrinter;
 
 public class Main
 {

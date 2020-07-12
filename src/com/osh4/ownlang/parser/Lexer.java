@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Split program into tokens.
+ */
 public final class Lexer
 {
 	private static final String                 OPERATOR_CHARS = "+-*/(){}=<>!&|;[],";
@@ -49,13 +52,23 @@ public final class Lexer
 	private       int         pos;
 	private final int         length;
 
-	public Lexer(String input)
+	/**
+	 * Constructor.
+	 *
+	 * @param input program text
+	 */
+	public Lexer(final String input)
 	{
 		this.input = input;
 		this.length = input.length();
 		tokens = new ArrayList<>();
 	}
 
+	/**
+	 * Tokenize program.
+	 *
+	 * @return list of token
+	 */
 	public List<Token> tokenize()
 	{
 		while (pos < length)
@@ -194,7 +207,7 @@ public final class Lexer
 		addToken(TokenType.HEX_NUMBER, buffer.toString());
 	}
 
-	private boolean isHexNumber(char current)
+	private boolean isHexNumber(final char current)
 	{
 		return Character.isDigit(current) || "abcdef".indexOf(Character.toLowerCase(current)) != -1;
 	}
@@ -285,7 +298,7 @@ public final class Lexer
 		addToken(TokenType.NUMBER, buffer.toString());
 	}
 
-	private char peek(int relativePosition)
+	private char peek(final int relativePosition)
 	{
 		final int position = pos + relativePosition;
 		if (position >= length)
@@ -301,12 +314,12 @@ public final class Lexer
 		return peek(0);
 	}
 
-	private void addToken(TokenType type)
+	private void addToken(final TokenType type)
 	{
 		addToken(type, "");
 	}
 
-	private void addToken(TokenType type, String text)
+	private void addToken(final TokenType type, final String text)
 	{
 		tokens.add(new Token(type, text));
 	}

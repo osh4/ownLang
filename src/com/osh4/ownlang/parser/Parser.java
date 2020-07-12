@@ -3,30 +3,33 @@ package com.osh4.ownlang.parser;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.osh4.ownlang.parser.ast.ArrayAccessExpression;
-import com.osh4.ownlang.parser.ast.ArrayAssignmentStatement;
-import com.osh4.ownlang.parser.ast.ArrayExpression;
-import com.osh4.ownlang.parser.ast.AssignmentStatement;
-import com.osh4.ownlang.parser.ast.BinaryExpression;
-import com.osh4.ownlang.parser.ast.BlockStatement;
-import com.osh4.ownlang.parser.ast.BreakStatement;
-import com.osh4.ownlang.parser.ast.ConditionalExpression;
-import com.osh4.ownlang.parser.ast.ContinueStatement;
-import com.osh4.ownlang.parser.ast.DoWhileStatement;
-import com.osh4.ownlang.parser.ast.ForStatement;
-import com.osh4.ownlang.parser.ast.FunctionDefineStatement;
-import com.osh4.ownlang.parser.ast.FunctionStatement;
-import com.osh4.ownlang.parser.ast.FunctionalExpression;
-import com.osh4.ownlang.parser.ast.ReturnStatement;
-import com.osh4.ownlang.parser.ast.VariableExpression;
-import com.osh4.ownlang.parser.ast.Expression;
-import com.osh4.ownlang.parser.ast.ValueExpression;
-import com.osh4.ownlang.parser.ast.PrintStatement;
-import com.osh4.ownlang.parser.ast.Statement;
-import com.osh4.ownlang.parser.ast.UnaryExpression;
-import com.osh4.ownlang.parser.ast.WhileStatement;
-import com.osh4.ownlang.parser.ast.ifStatement;
+import com.osh4.ownlang.parser.ast.expression.impl.ArrayAccessExpression;
+import com.osh4.ownlang.parser.ast.statement.impl.ArrayAssignmentStatement;
+import com.osh4.ownlang.parser.ast.expression.impl.ArrayExpression;
+import com.osh4.ownlang.parser.ast.statement.impl.AssignmentStatement;
+import com.osh4.ownlang.parser.ast.expression.impl.BinaryExpression;
+import com.osh4.ownlang.parser.ast.statement.impl.BlockStatement;
+import com.osh4.ownlang.parser.ast.statement.impl.BreakStatement;
+import com.osh4.ownlang.parser.ast.expression.impl.ConditionalExpression;
+import com.osh4.ownlang.parser.ast.statement.impl.ContinueStatement;
+import com.osh4.ownlang.parser.ast.statement.impl.DoWhileStatement;
+import com.osh4.ownlang.parser.ast.statement.impl.ForStatement;
+import com.osh4.ownlang.parser.ast.statement.impl.FunctionDefineStatement;
+import com.osh4.ownlang.parser.ast.statement.impl.FunctionStatement;
+import com.osh4.ownlang.parser.ast.expression.impl.FunctionalExpression;
+import com.osh4.ownlang.parser.ast.statement.impl.ReturnStatement;
+import com.osh4.ownlang.parser.ast.expression.impl.VariableExpression;
+import com.osh4.ownlang.parser.ast.expression.Expression;
+import com.osh4.ownlang.parser.ast.expression.impl.ValueExpression;
+import com.osh4.ownlang.parser.ast.statement.impl.PrintStatement;
+import com.osh4.ownlang.parser.ast.statement.Statement;
+import com.osh4.ownlang.parser.ast.expression.impl.UnaryExpression;
+import com.osh4.ownlang.parser.ast.statement.impl.WhileStatement;
+import com.osh4.ownlang.parser.ast.statement.impl.ifStatement;
 
+/**
+ * Parse token list to create executable program.
+ */
 public class Parser
 {
 	private static final Token EOF = new Token(TokenType.EOF, "");
@@ -35,7 +38,7 @@ public class Parser
 	private final int         size;
 	private       int         pos;
 
-	public Parser(List<Token> tokens)
+	public Parser(final List<Token> tokens)
 	{
 		this.tokens = tokens;
 		size = tokens.size();
@@ -214,7 +217,7 @@ public class Parser
 		throw new RuntimeException("Unknown statement");
 	}
 
-	private boolean lookMatch(int pos, TokenType type)
+	private boolean lookMatch(final int pos, final TokenType type)
 	{
 		return get(pos).getType() == type;
 	}
@@ -420,7 +423,7 @@ public class Parser
 		return new ArrayAccessExpression(variable, indices);
 	}
 
-	private boolean match(TokenType type)
+	private boolean match(final TokenType type)
 	{
 		final Token current = get(0);
 		if (type != current.getType())
@@ -431,7 +434,7 @@ public class Parser
 		return true;
 	}
 
-	private Token consume(TokenType type)
+	private Token consume(final TokenType type)
 	{
 		final Token current = get(0);
 		if (type != current.getType())
@@ -442,7 +445,7 @@ public class Parser
 		return current;
 	}
 
-	private Token get(int relativePosition)
+	private Token get(final int relativePosition)
 	{
 		final int position = pos + relativePosition;
 		if (position >= size)
