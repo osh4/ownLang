@@ -30,7 +30,7 @@ import com.osh4.ownlang.parser.ast.statement.impl.ifStatement;
 /**
  * Parse token list to create executable program.
  */
-public class Parser
+public final class Parser
 {
 	private static final Token EOF = new Token(TokenType.EOF, "");
 

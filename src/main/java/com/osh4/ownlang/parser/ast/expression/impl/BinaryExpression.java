@@ -7,11 +7,21 @@ import com.osh4.ownlang.value.Value;
 import com.osh4.ownlang.parser.ast.expression.Expression;
 import com.osh4.ownlang.parser.ast.visitor.Visitor;
 
-public class BinaryExpression implements Expression
+/**
+ * Represents binary operation expression.
+ */
+public final class BinaryExpression implements Expression
 {
 	public final Expression expr1, expr2;
 	public final char operation;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param operation operation like + - * /
+	 * @param expr1     expression 1
+	 * @param expr2     expression 2
+	 */
 	public BinaryExpression(final char operation, final Expression expr1, final Expression expr2)
 	{
 		this.expr1 = expr1;

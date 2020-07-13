@@ -6,15 +6,26 @@ import java.util.List;
 import com.osh4.ownlang.parser.ast.statement.Statement;
 import com.osh4.ownlang.parser.ast.visitor.Visitor;
 
-public class BlockStatement implements Statement
+/**
+ * Represents block of statements surrounded with braces.
+ */
+public final class BlockStatement implements Statement
 {
 	public final List<Statement> statementList;
 
+	/**
+	 * Constructor.
+	 */
 	public BlockStatement()
 	{
 		this.statementList = new ArrayList<>();
 	}
 
+	/**
+	 * Adds statement from block to statement list.
+	 *
+	 * @param statement statement to add
+	 */
 	public void add(final Statement statement)
 	{
 		statementList.add(statement);

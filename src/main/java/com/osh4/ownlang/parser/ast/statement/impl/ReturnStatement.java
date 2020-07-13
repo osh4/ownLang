@@ -5,11 +5,19 @@ import com.osh4.ownlang.parser.ast.statement.Statement;
 import com.osh4.ownlang.parser.ast.visitor.Visitor;
 import com.osh4.ownlang.parser.ast.expression.Expression;
 
-public class ReturnStatement extends RuntimeException implements Statement
+/**
+ * Represents return value from functions.
+ */
+public final class ReturnStatement extends RuntimeException implements Statement
 {
 	public final Expression expression;
 	public       Value      result;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param expression expression to return as result
+	 */
 	public ReturnStatement(final Expression expression)
 	{
 		this.expression = expression;

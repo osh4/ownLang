@@ -7,8 +7,7 @@ import com.osh4.ownlang.value.Value;
  */
 public class NumberValue implements Value
 {
-	private final       double value;
-	//public static final Value  ZERO = new NumberValue(0);
+	private final double value;
 
 	public NumberValue()
 	{

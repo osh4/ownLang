@@ -8,7 +8,7 @@ import com.osh4.ownlang.parser.Token;
 import com.osh4.ownlang.parser.ast.statement.impl.BlockStatement;
 import com.osh4.ownlang.parser.ast.visitor.impl.FunctionAdder;
 
-public class Main
+public final class Main
 {
 	public static void main(String[] args)
 	{

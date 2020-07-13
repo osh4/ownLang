@@ -4,11 +4,20 @@ import com.osh4.ownlang.parser.ast.expression.Expression;
 import com.osh4.ownlang.parser.ast.statement.Statement;
 import com.osh4.ownlang.parser.ast.visitor.Visitor;
 
-public class DoWhileStatement implements Statement
+/**
+ * Represents do while loop.
+ */
+public final class DoWhileStatement implements Statement
 {
 	public final Expression condition;
 	public final Statement  statement;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param condition loop condition
+	 * @param statement statement inside the loop
+	 */
 	public DoWhileStatement(final Expression condition, final Statement statement)
 	{
 		this.condition = condition;
@@ -18,7 +27,6 @@ public class DoWhileStatement implements Statement
 	@Override
 	public void execute()
 	{
-
 		do
 		{
 			try

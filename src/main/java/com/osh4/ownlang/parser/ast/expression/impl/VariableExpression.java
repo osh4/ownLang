@@ -5,11 +5,19 @@ import com.osh4.ownlang.lib.Variables;
 import com.osh4.ownlang.parser.ast.expression.Expression;
 import com.osh4.ownlang.parser.ast.visitor.Visitor;
 
-public class VariableExpression implements Expression
+/**
+ * Represents variable definition.
+ */
+public final class VariableExpression implements Expression
 {
 	public final String name;
 
-	public VariableExpression(String name)
+	/**
+	 * Constructor.
+	 *
+	 * @param name variable name
+	 */
+	public VariableExpression(final String name)
 	{
 		this.name = name;
 	}

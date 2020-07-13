@@ -7,10 +7,18 @@ import com.osh4.ownlang.value.Value;
 import com.osh4.ownlang.parser.ast.expression.Expression;
 import com.osh4.ownlang.parser.ast.visitor.Visitor;
 
-public class ArrayExpression implements Expression
+/**
+ * Represents array creation expression.
+ */
+public final class ArrayExpression implements Expression
 {
 	public final List<Expression> elements;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param elements elements of array provided
+	 */
 	public ArrayExpression(final List<Expression> elements)
 	{
 		this.elements = elements;

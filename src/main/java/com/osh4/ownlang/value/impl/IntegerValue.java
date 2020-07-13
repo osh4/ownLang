@@ -7,7 +7,7 @@ import com.osh4.ownlang.value.Value;
  */
 public class IntegerValue implements Value
 {
-	private final       int   value;
+	private final int value;
 
 	/**
 	 * Constructor.

@@ -9,7 +9,7 @@ import com.osh4.ownlang.value.impl.StringValue;
 /**
  * Represents conditional expression.
  */
-public class ConditionalExpression implements Expression
+public final class ConditionalExpression implements Expression
 {
 	/**
 	 * Operators.

@@ -7,12 +7,22 @@ import com.osh4.ownlang.function.impl.UserDefineFunction;
 import com.osh4.ownlang.parser.ast.statement.Statement;
 import com.osh4.ownlang.parser.ast.visitor.Visitor;
 
-public class FunctionDefineStatement implements Statement
+/**
+ * Represents user function definition.
+ */
+public final class FunctionDefineStatement implements Statement
 {
 	public final String       name;
 	public final List<String> args;
 	public final Statement    body;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param name function name
+	 * @param args function arguments
+	 * @param body function body
+	 */
 	public FunctionDefineStatement(final String name, final List<String> args, final Statement body)
 	{
 		this.name = name;

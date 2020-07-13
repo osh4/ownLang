@@ -5,11 +5,20 @@ import com.osh4.ownlang.parser.ast.statement.Statement;
 import com.osh4.ownlang.parser.ast.visitor.Visitor;
 import com.osh4.ownlang.parser.ast.expression.impl.ArrayAccessExpression;
 
-public class ArrayAssignmentStatement implements Statement
+/**
+ * Represents value to array element assignment.
+ */
+public final class ArrayAssignmentStatement implements Statement
 {
 	public final ArrayAccessExpression array;
 	public final Expression            expression;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param array      array to operate with
+	 * @param expression expression to assign
+	 */
 	public ArrayAssignmentStatement(final ArrayAccessExpression array, final Expression expression)
 	{
 		this.array = array;

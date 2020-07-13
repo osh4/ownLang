@@ -5,11 +5,20 @@ import com.osh4.ownlang.value.Value;
 import com.osh4.ownlang.parser.ast.expression.Expression;
 import com.osh4.ownlang.parser.ast.visitor.Visitor;
 
-public class UnaryExpression implements Expression
+/**
+ * Represents unary operations (like sign of number).
+ */
+public final class UnaryExpression implements Expression
 {
 	public final Expression expr1;
 	public final char       operation;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param operation operation (+ -)
+	 * @param expr1     expression for the operation to apply
+	 */
 	public UnaryExpression(final char operation, final Expression expr1)
 	{
 		this.expr1 = expr1;

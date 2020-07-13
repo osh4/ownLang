@@ -3,7 +3,10 @@ package com.osh4.ownlang.parser.ast.statement.impl;
 import com.osh4.ownlang.parser.ast.statement.Statement;
 import com.osh4.ownlang.parser.ast.visitor.Visitor;
 
-public class BreakStatement extends RuntimeException implements Statement
+/**
+ * Represents break statement in loop.
+ */
+public final class BreakStatement extends RuntimeException implements Statement
 {
 	@Override
 	public void execute()

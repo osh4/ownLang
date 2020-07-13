@@ -11,23 +11,42 @@ import com.osh4.ownlang.function.impl.UserDefineFunction;
 import com.osh4.ownlang.parser.ast.expression.Expression;
 import com.osh4.ownlang.parser.ast.visitor.Visitor;
 
-public class FunctionalExpression implements Expression
+/**
+ * Represents definition of user function.
+ */
+public final class FunctionalExpression implements Expression
 {
 	public final String           name;
 	public final List<Expression> args;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param name function name
+	 * @param args function arguments
+	 */
 	public FunctionalExpression(final String name, final List<Expression> args)
 	{
 		this.name = name;
 		this.args = args;
 	}
 
+	/**
+	 * Constructor.
+	 *
+	 * @param name function name
+	 */
 	public FunctionalExpression(final String name)
 	{
 		this.name = name;
 		this.args = new ArrayList<>();
 	}
 
+	/**
+	 * Add argument to the argument list.
+	 *
+	 * @param arg argument expression
+	 */
 	public void addArg(final Expression arg)
 	{
 		args.add(arg);

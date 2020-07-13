@@ -4,16 +4,26 @@ import com.osh4.ownlang.parser.ast.statement.Statement;
 import com.osh4.ownlang.parser.ast.visitor.Visitor;
 import com.osh4.ownlang.parser.ast.expression.Expression;
 
-public class ifStatement implements Statement
+/**
+ * Represents if branching.
+ */
+public final class ifStatement implements Statement
 {
 	public final Expression expression;
 	public final Statement  ifStatemenet, elseStatemenet;
 
-	public ifStatement(final Expression expression, final Statement ifStatemenet, final Statement elseStatemenet)
+	/**
+	 * Constructor.
+	 *
+	 * @param expression    body of "if"
+	 * @param ifStatement   "if" section statement
+	 * @param elseStatement "else" section statement
+	 */
+	public ifStatement(final Expression expression, final Statement ifStatement, final Statement elseStatement)
 	{
 		this.expression = expression;
-		this.ifStatemenet = ifStatemenet;
-		this.elseStatemenet = elseStatemenet;
+		this.ifStatemenet = ifStatement;
+		this.elseStatemenet = elseStatement;
 	}
 
 	@Override

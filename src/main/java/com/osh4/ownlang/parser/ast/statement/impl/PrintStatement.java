@@ -4,11 +4,20 @@ import com.osh4.ownlang.parser.ast.statement.Statement;
 import com.osh4.ownlang.parser.ast.visitor.Visitor;
 import com.osh4.ownlang.parser.ast.expression.Expression;
 
-public class PrintStatement implements Statement
+/**
+ * Represents print to console.
+ */
+public final class PrintStatement implements Statement
 {
 	public final Expression expression;
 	public final boolean    hasNewLine;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param expression what to print
+	 * @param hasNewLine if true use println(), otherwise print()
+	 */
 	public PrintStatement(final Expression expression, final boolean hasNewLine)
 	{
 		this.expression = expression;

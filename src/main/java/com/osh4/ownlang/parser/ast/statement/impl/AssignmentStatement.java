@@ -6,11 +6,20 @@ import com.osh4.ownlang.parser.ast.expression.Expression;
 import com.osh4.ownlang.parser.ast.statement.Statement;
 import com.osh4.ownlang.parser.ast.visitor.Visitor;
 
-public class AssignmentStatement implements Statement
+/**
+ * Represents value to variable assignment.
+ */
+public final class AssignmentStatement implements Statement
 {
 	public final String     variable;
 	public final Expression expression;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param variable   variable name
+	 * @param expression expression to assign
+	 */
 	public AssignmentStatement(final String variable, final Expression expression)
 	{
 		this.variable = variable;

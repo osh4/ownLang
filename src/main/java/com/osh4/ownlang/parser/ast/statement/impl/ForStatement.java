@@ -4,13 +4,24 @@ import com.osh4.ownlang.parser.ast.statement.Statement;
 import com.osh4.ownlang.parser.ast.visitor.Visitor;
 import com.osh4.ownlang.parser.ast.expression.Expression;
 
-public class ForStatement implements Statement
+/**
+ * Represents for loop.
+ */
+public final class ForStatement implements Statement
 {
 	public final Statement  initialization;
 	public final Expression termination;
 	public final Statement  increment;
 	public final Statement  statement;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param initialization initialization statement
+	 * @param termination    termination condition
+	 * @param increment      increment statement
+	 * @param statement      loop body
+	 */
 	public ForStatement(final Statement initialization, final Expression termination, final Statement increment,
 	                    final Statement statement)
 	{

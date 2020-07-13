@@ -5,7 +5,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class ProgramLoader
+public final class ProgramLoader
 {
 	public static String loadFromFile(String fileName)
 	{

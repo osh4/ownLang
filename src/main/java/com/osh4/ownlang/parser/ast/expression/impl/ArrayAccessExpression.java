@@ -8,7 +8,10 @@ import com.osh4.ownlang.lib.Variables;
 import com.osh4.ownlang.parser.ast.expression.Expression;
 import com.osh4.ownlang.parser.ast.visitor.Visitor;
 
-public class ArrayAccessExpression implements Expression
+/**
+ * Represents access to array elements.
+ */
+public final class ArrayAccessExpression implements Expression
 {
 	public final String           variable;
 	public final List<Expression> indices;
@@ -25,6 +28,11 @@ public class ArrayAccessExpression implements Expression
 		return getArray().get(lastIndex());
 	}
 
+	/**
+	 * Go down from highest dimension of array to lowest.
+	 *
+	 * @return lowest level array
+	 */
 	public ArrayValue getArray()
 	{
 		ArrayValue array = consumeArray(Variables.get(variable));
@@ -36,11 +44,23 @@ public class ArrayAccessExpression implements Expression
 		return array;
 	}
 
+	/**
+	 * Gets lowest level index of element.
+	 *
+	 * @return lowest level index
+	 */
 	public int lastIndex()
 	{
 		return index(indices.size() - 1);
 	}
 
+	/**
+	 * Gets index of element by provided dimension index of array.
+	 *
+	 * @param index level of array nesting
+	 *
+	 * @return index from nesting level provided
+	 */
 	private int index(final int index)
 	{
 		return indices.get(index).eval().asInt();
